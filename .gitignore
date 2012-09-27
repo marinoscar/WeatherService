@@ -1,6 +1,21 @@
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 bin
 obj
+/Build/Bin
+*.user
+*.suo
+*.cache
+*.pdb
+*.bin
+*.crc
+*.zip
+*.txt
+*.version
+/*/bin
+/*/obj
+*.rar
+/Publish
+*/_ReSharper.*
 
 # mstest test results
 TestResults
