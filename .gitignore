@@ -16,6 +16,7 @@ obj
 *.rar
 /Publish
 */_ReSharper.*
+_ReSharper.WeatherService
 
 # mstest test results
 TestResults
