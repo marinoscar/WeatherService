@@ -23,4 +23,10 @@ namespace WeatherService
         Item12hourly,
     }
 
+    public enum temperatureItem
+    {
+        Temperature,
+        RelativeHumidity
+    }
+
 }

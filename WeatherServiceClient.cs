@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
-using System.Text;
 
 namespace WeatherService
 {
     public class WeatherServiceClient
     {
-
         private readonly CustomBinding _binding;
         private readonly EndpointAddress _endpointAddress;
         private readonly IWeatherServiceClient _serviceClient;
@@ -24,13 +21,17 @@ namespace WeatherService
             _serviceClient = ChannelFactory<IWeatherServiceClient>.CreateChannel(_binding,_endpointAddress);
         }
 
-
         public string GetTemperature(float latitude, float longitude, DateTime start, DateTime end)
         {
             return _serviceClient.NDFDgen((decimal)latitude, (decimal)longitude, productType.timeseries, start,
                            end, unitType.m, new weatherParametersType() { maxt = true });
         }
 
+        public string GetRelativeHumidity(float latitude, float longitude, DateTime start, DateTime end)
+        {
+            return _serviceClient.NDFDgen((decimal)latitude, (decimal)longitude, productType.timeseries, start,
+                           end, unitType.m, new weatherParametersType() { rh = true });
+        }
         
     }
 }

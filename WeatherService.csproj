@@ -34,12 +34,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>Libs\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationStrings.cs" />
@@ -50,14 +54,19 @@
     <Compile Include="IsoTextMessageEncodingElement.cs" />
     <Compile Include="MessageVersionConverter.cs" />
     <Compile Include="IWeatherServiceClient.cs" />
+    <Compile Include="Models\GeoLocation.cs" />
+    <Compile Include="Models\WeatherData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTests\WeatherDataService_Returns_Temperature .cs" />
     <Compile Include="weatherParametersType.cs" />
+    <Compile Include="WeatherService.cs" />
     <Compile Include="WeatherServiceClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

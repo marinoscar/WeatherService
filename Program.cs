@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ServiceModel;
-using System.ServiceModel.Channels;
-using System.Text;
+using WeatherService.Models;
 
 namespace WeatherService
 {
@@ -10,20 +7,20 @@ namespace WeatherService
     {
         static void Main(string[] args)
         {
-            //var binding = new CustomBinding();
-            //binding.Elements.Add(new IsoTextMessageBindingElement("ISO-8859-1", "text/xml", MessageVersion.Soap11));
-            //binding.Elements.Add(new HttpTransportBindingElement());
-            //var client = ChannelFactory<IWeatherServiceClient>.CreateChannel(
-            //    binding,
-            //    new EndpointAddress("http://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php"));
+            //var client = new WeatherServiceClient();
+            //var result = client.GetTemperature((float) 33.481048, (float) -86.704159, new DateTime(2012, 1, 1),
+            //                                   DateTime.Now);
+            //Console.WriteLine(result);
+            //Console.ReadKey();
 
-            //var result = client.NDFDgen((decimal) 33.481048, (decimal) -86.704159, productType.timeseries, new DateTime(2012, 1, 1),
-            //               DateTime.Now, unitType.m, new weatherParametersType() {maxt = true});
-            var client = new WeatherServiceClient();
-            var result = client.GetTemperature((float) 33.481048, (float) -86.704159, new DateTime(2012, 1, 1),
-                                               DateTime.Now);
-            Console.WriteLine(result);
-            Console.ReadKey();
+
+            GeoLocation location = new GeoLocation() { Latitude = (float)33.481048, Longitude = (float)-86.704159 };
+            var start = new DateTime(2004, 01, 01, 0, 0, 0);
+            var end = new DateTime(2016, 09, 24, 0, 0, 0);
+
+            var data = new WeatherService().GetTemperature(location, start, end);
+
+            data = new WeatherService().RelativeHumidity(location, start, end);
         }
     }
 }
