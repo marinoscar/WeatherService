@@ -1,7 +1,7 @@
 ﻿using System;
 using WeatherService.Models;
 
-namespace WeatherService
+namespace WeatherService.Console
 {
     class Program
     {
